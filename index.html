@@ -1,16 +1,16 @@
-<!DOCTYPE html>
+s<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Safa Omra — Pré-Réservation Ramadan 2027</title>
 
   <!-- ══ WhatsApp / réseaux sociaux ══ -->
-  <meta property="og:type"        content="website">
-  <meta property="og:title"       content="Safa Omra — Pré-Réservation Ramadan 2027">
-  <meta property="og:description" content="Réservez votre place pour l'Omra Ramadan 2027. Formulaire rapide et sécurisé — Safa Omra, l'autre vision de la Omra.">
-  <meta property="og:image"       content="https://safa-omra.github.io/pre-reservation-ramadan/logo_safa.jpg">
-  <meta property="og:url"         content="https://safa-omra.github.io/pre-reservation-ramadan">
+  <meta property="og:type"         content="website">
+  <meta property="og:title"        content="Safa Omra — Pré-Réservation Ramadan 2027">
+  <meta property="og:description"  content="Réservez votre place pour l'Omra Ramadan 2027. Formulaire rapide et sécurisé — Safa Omra, l'autre vision de la Omra.">
+  <meta property="og:image"        content="https://safa-omra.github.io/pre-reservation-ramadan/logo_safa.jpg">
+  <meta property="og:url"          content="https://safa-omra.github.io/pre-reservation-ramadan">
   <meta property="og:image:width"  content="480">
   <meta property="og:image:height" content="480">
   <meta name="twitter:card"        content="summary">
@@ -18,211 +18,122 @@
   <meta name="twitter:description" content="Réservez votre place pour l'Omra Ramadan 2027.">
   <meta name="twitter:image"       content="https://safa-omra.github.io/pre-reservation-ramadan/logo_safa.jpg">
 
-  <!-- Favicon -->
   <link rel="icon" href="logo_safa.jpg">
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --vert:  #3B5323;   /* vert forêt logo SAFA */
-      --or:    #C4A05A;   /* or sablé logo */
-      --bg:    #f4f1eb;   /* fond sable très clair */
-      --vert2: #4a6630;   /* vert hover */
+      --vert : #3b5323;
+      --or   : #C4A05A;
+      --bg   : #f4f1eb;
     }
 
     html, body {
       height: 100%;
       background: var(--bg);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-    }
-
-    /* ── Bandeau top ── */
-    header {
-      background: var(--vert);
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 8px 16px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 12px rgba(0,0,0,.35);
-      gap: 10px;
-    }
-
-    .logo-zone {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-shrink: 0;
-    }
-
-    .logo-zone img {
-      height: 48px;
-      width: 48px;
-      object-fit: contain;
-      border-radius: 50%;
-      background: #fff;
-      padding: 3px;
-      display: block;
-    }
-
-    .logo-text {
-      color: #fff;
-      font-size: 1rem;
-      font-weight: 700;
-      line-height: 1.25;
-      white-space: nowrap;
-    }
-
-    .logo-text small {
-      display: block;
-      font-size: .68rem;
-      font-weight: 400;
-      color: var(--or);
-      letter-spacing: .4px;
-    }
-
-    .secure-badge {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      color: rgba(255,255,255,.8);
-      font-size: .75rem;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .secure-badge svg {
-      width: 14px;
-      height: 14px;
-      flex-shrink: 0;
-    }
-
-    /* ── Iframe wrapper ── */
-    .frame-wrap {
-      position: relative;
-      height: calc(100vh - 64px);
-    }
-
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
-    }
-
-    /* ── Loader ── */
-    #loader {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 18px;
-      background: var(--bg);
-      z-index: 10;
-      transition: opacity .4s;
     }
 
-    #loader.hidden { opacity: 0; pointer-events: none; }
-
-    #loader img {
-      width: 80px;
-      height: 80px;
-      object-fit: contain;
-      animation: pulse 1.6s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%,100% { transform: scale(1);   opacity: 1; }
-      50%      { transform: scale(.9); opacity: .7; }
-    }
-
-    .spinner {
-      width: 40px;
-      height: 40px;
-      border: 4px solid #d5c9b0;
-      border-top-color: var(--vert);
-      border-radius: 50%;
-      animation: spin .8s linear infinite;
-    }
-
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    #loader p {
-      color: var(--vert);
-      font-weight: 600;
-      font-size: .95rem;
-    }
-
-    /* ── Message erreur ── */
-    #errMsg {
-      display: none;
+    .card {
       text-align: center;
-      padding: 60px 24px;
-      color: #555;
+      padding: 48px 32px;
+      max-width: 360px;
+      width: 100%;
     }
 
-    #errMsg h2 { color: var(--vert); margin-bottom: 10px; }
+    .logo {
+      width: 110px;
+      height: 110px;
+      object-fit: contain;
+      margin: 0 auto 20px;
+      display: block;
+      animation: appear .6s ease both;
+    }
 
-    #errMsg a {
+    @keyframes appear {
+      from { opacity: 0; transform: scale(.85); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    h1 {
+      color: var(--vert);
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+      animation: appear .7s ease both;
+    }
+
+    .tagline {
+      color: var(--or);
+      font-size: .85rem;
+      font-weight: 600;
+      letter-spacing: .5px;
+      margin-bottom: 28px;
+      animation: appear .8s ease both;
+    }
+
+    /* Barre de progression */
+    .bar-wrap {
+      background: #e0d9cc;
+      border-radius: 99px;
+      height: 6px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      animation: appear .9s ease both;
+    }
+
+    .bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--vert), var(--or));
+      border-radius: 99px;
+      width: 0%;
+      transition: width 1.6s cubic-bezier(.4,0,.2,1);
+    }
+
+    .msg {
+      color: #888;
+      font-size: .88rem;
+      animation: appear 1s ease both;
+    }
+
+    /* Lien de secours (affiché si redirect échoue) */
+    .fallback {
+      display: none;
+      margin-top: 24px;
+    }
+
+    .fallback a {
       display: inline-block;
-      margin-top: 20px;
       background: var(--vert);
       color: #fff;
       padding: 14px 28px;
       border-radius: 12px;
       text-decoration: none;
       font-weight: 700;
+      font-size: 1rem;
     }
   </style>
 </head>
 <body>
 
-<!-- ══ BANDEAU ══ -->
-<header>
-  <div class="logo-zone">
-    <img src="logo_safa.jpg" alt="Logo Safa Omra">
-    <div class="logo-text">
-      Safa Omra
-      <small>L'autre vision de la Omra</small>
-    </div>
+<div class="card">
+  <img class="logo" src="logo_safa.jpg" alt="Safa Omra">
+  <h1>Safa Omra</h1>
+  <p class="tagline">— L'autre vision de la Omra —</p>
+
+  <div class="bar-wrap">
+    <div class="bar" id="bar"></div>
   </div>
-  <div class="secure-badge">
-    <!-- Icône bouclier -->
-    <svg viewBox="0 0 24 24" fill="none" stroke="#C4A05A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M12 2L4 5v6c0 5.25 3.4 10.15 8 11.35C16.6 21.15 20 16.25 20 11V5l-8-3z"/>
-      <polyline points="9 12 11 14 15 10"/>
-    </svg>
-    Formulaire sécurisé
+  <p class="msg" id="msg">Ouverture du formulaire…</p>
+
+  <!-- Affiché uniquement si la redirection prend trop de temps -->
+  <div class="fallback" id="fallback">
+    <a id="fallbackLink" href="#">Accéder au formulaire →</a>
   </div>
-</header>
-
-<!-- ══ CONTENU ══ -->
-<div class="frame-wrap">
-
-  <div id="loader">
-    <img src="logo_safa.jpg" alt="Safa Omra">
-    <div class="spinner"></div>
-    <p>Chargement du formulaire…</p>
-  </div>
-
-  <div id="errMsg">
-    <h2>Formulaire introuvable</h2>
-    <p>Le lien que vous avez utilisé semble invalide.<br>
-       Contactez-nous à <strong>safaomra.fr@gmail.com</strong></p>
-    <a href="mailto:safaomra.fr@gmail.com">Nous contacter</a>
-  </div>
-
-  <iframe
-    id="formFrame"
-    title="Formulaire de pré-réservation Safa Omra"
-    scrolling="yes"
-  ></iframe>
-
 </div>
 
 <script>
@@ -238,6 +149,7 @@ var PACKS = {
     onglet_confort: "Omra Ramadan 2027",
     onglet_eco:     "Omra Ramadan 2027"
   }
+  // Ajouter d'autres voyages ici :
   // "chaabane-2027": {
   //   planning_id:    PLANNING_ID,
   //   onglet_confort: "Omra Chaabane 2027",
@@ -248,22 +160,33 @@ var PACKS = {
 var params  = new URLSearchParams(window.location.search);
 var packKey = params.get("pack") || "ramadan-2027";
 var pack    = PACKS[packKey];
-var frame   = document.getElementById("formFrame");
-var loader  = document.getElementById("loader");
-var errMsg  = document.getElementById("errMsg");
 
 if (!pack) {
-  loader.classList.add("hidden");
-  errMsg.style.display = "block";
+  document.getElementById("msg").textContent = "Lien invalide — contactez Safa Omra.";
 } else {
   var url = BASE_URL
     + "?planning_id="    + encodeURIComponent(pack.planning_id)
     + "&onglet_confort=" + encodeURIComponent(pack.onglet_confort)
     + "&onglet_eco="     + encodeURIComponent(pack.onglet_eco);
 
-  frame.src = url;
-  frame.addEventListener("load", function () { loader.classList.add("hidden"); });
-  setTimeout(function () { loader.classList.add("hidden"); }, 12000);
+  // Affiche le lien de secours
+  document.getElementById("fallbackLink").href = url;
+
+  // Lance la barre de progression
+  setTimeout(function () {
+    document.getElementById("bar").style.width = "100%";
+  }, 80);
+
+  // Redirige après 1,8 s (laisse le temps à la barre de finir)
+  setTimeout(function () {
+    window.location.replace(url);
+  }, 1800);
+
+  // Si la redirection n'a pas eu lieu après 5 s, affiche le lien manuel
+  setTimeout(function () {
+    document.getElementById("fallback").style.display = "block";
+    document.getElementById("msg").textContent = "Cliquez ci-dessous si la page ne s'ouvre pas automatiquement.";
+  }, 5000);
 }
 </script>
 
